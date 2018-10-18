@@ -18,8 +18,8 @@
 
             <Button
                 android:id="@+id/back"
-                android:layout_width="50dp"
-                android:layout_height="match_parent"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_gravity="left"
                 android:adjustViewBounds="true"
                 android:background="@drawable/ic_arrow_back_black_24dp" />
