@@ -20,7 +20,7 @@ import twodo.twodo.dto.api.ApiListener;
 import twodo.twodo.dto.api.ApiProvider;
 import twodo.twodo.dto.model.User;
 
-public class LoginActivity  extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
     @BindView(R.id.input_email_login)
     EditText email;
@@ -55,6 +55,9 @@ public class LoginActivity  extends AppCompatActivity {
             @Override
             public void onSuccess(User response) {
                 Toast.makeText(getApplicationContext(), "Successfully logged in!", Toast.LENGTH_SHORT).show();
+
+                Intent i = new Intent(LoginActivity.this, PagerActivity.class);
+                LoginActivity.this.startActivity(i);
             }
 
             @Override
