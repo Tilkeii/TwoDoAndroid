@@ -1,77 +1,91 @@
 package twodo.twodo.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.List;
+import java.util.ArrayList;
 
 import twodo.twodo.R;
+import twodo.twodo.activity.LoginActivity;
+import twodo.twodo.dto.model.User;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
 
-    private List<String> mData;
+    private ArrayList<User> matches;
     private LayoutInflater mInflater;
-    private ItemClickListener mClickListener;
+    private View view;
 
     // data is passed into the constructor
-    public RecyclerViewAdapter(Context context, List<String> data) {
+    public RecyclerViewAdapter(Context context, ArrayList<User> matches) {
         this.mInflater = LayoutInflater.from(context);
-        this.mData = data;
+        this.matches = matches;
     }
 
     // inflates the row layout from xml when needed
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = mInflater.inflate(R.layout.row_match, parent, false);
+        view = mInflater.inflate(R.layout.row_match, parent, false);
         return new ViewHolder(view);
     }
 
     // binds the data to the TextView in each row
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
-        String animal = mData.get(position);
-        holder.myTextView.setText(animal);
+    public void onBindViewHolder(final ViewHolder holder, int position) {
+        final User match = matches.get(position);
+
+        //holder.photo.setImage(match.getPicture());
+        holder.category.setText(match.getOfferCategory());
+        holder.date.setText(match.getDate());
+        holder.name.setText(match.getFirstname());
+        holder.age.setText(Integer.toString(match.getAge()) + view.getContext().getResources().getString(R.string.years));
+        holder.description.setText(match.getOfferDescription());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Intent i = new Intent(view.getContext(), .class); METTRE LE NOM DE LA CLASSE PROFIL
+                //i.putExtra("", ); METTRE L'ID DE LA PERSONNE POUR LA RECUP DANS LA NOUVELLE ACTIVITE EN FAISANT UN GETINTENT
+                //view.getContext().startActivity(i);
+            }
+        });
     }
 
     // total number of rows
     @Override
     public int getItemCount() {
-        return mData.size();
+        return matches.size();
     }
 
-
     // stores and recycles views as they are scrolled off screen
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        TextView myTextView;
+    public class ViewHolder extends RecyclerView.ViewHolder {
+
+        ImageView photo;
+        TextView category;
+        TextView date;
+        TextView name;
+        TextView age;
+        TextView description;
 
         ViewHolder(View itemView) {
             super(itemView);
-            myTextView = itemView.findViewById(R.id.name);
-            itemView.setOnClickListener(this);
-        }
 
-        @Override
-        public void onClick(View view) {
-            if (mClickListener != null) mClickListener.onItemClick(view, getAdapterPosition());
+            photo = itemView.findViewById(R.id.photo);
+            category = itemView.findViewById(R.id.category);
+            date = itemView.findViewById(R.id.date);
+            name = itemView.findViewById(R.id.name);
+            age = itemView.findViewById(R.id.age);
+            description = itemView.findViewById(R.id.description);
         }
     }
 
     // convenience method for getting data at click position
-    public String getItem(int id) {
-        return mData.get(id);
-    }
-
-    // allows clicks events to be caught
-    public void setClickListener(ItemClickListener itemClickListener) {
-        this.mClickListener = itemClickListener;
-    }
-
-    // parent activity will implement this method to respond to click events
-    public interface ItemClickListener {
-        void onItemClick(View view, int position);
+    public User getItem(int id) {
+        return matches.get(id);
     }
 }

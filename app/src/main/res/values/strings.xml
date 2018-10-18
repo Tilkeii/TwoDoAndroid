@@ -1,4 +1,7 @@
 <resources>
+
+    <!-- LOGIN LAYOUT -->
+
     <string name="app_name">TwoDo</string>
     <string name="password_label">Mot de passe</string>
     <string name="password_hint">********</string>
@@ -15,4 +18,19 @@
     <string name="address_hint">Paris</string>
     <string name="btn_register">S\'inscrire</string>
     <string name="cancel">Annuler</string>
+
+    <!-- MATCHING LAYOUT -->
+
+    <string name="name">Jean-Claude</string>
+    <string name="separator">\u0020|\u0020</string>
+    <string name="age">64 ans</string>
+    <string name="description">Je propose des cours de Photoshop niveau débutant.</string>
+
+
+    <!-- MATCHES LAYOUT -->
+
+    <string name="category">Informatique</string>
+    <string name="separatorDate">, le\u0020</string>
+    <string name="date">02/11/2018</string>
+    <string name="years">\u0020ans</string>
 </resources>
