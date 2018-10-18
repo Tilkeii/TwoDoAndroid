@@ -1,9 +1,219 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scroll_view"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginStart="60dp"
+        android:layout_marginEnd="60dp">
+
+        <ImageView
+            android:id="@+id/imageprofile"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/change_profile" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="@dimen/label_margin_bottom"
+            android:text="@string/my_info"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/font_title_default" />
+
+        <View
+            android:id="@+id/divider_profile"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/colorPrimary"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="@dimen/label_margin_bottom"
+            android:text="@string/last_name_label"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/font_default" />
+
+        <EditText
+            android:id="@+id/name_profil"
+            style="@style/EditTextStyle"
+            android:hint=""
+            android:inputType="text"
+            android:focusable="false"
+            android:background="@color/colorAccentDark" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="@dimen/label_margin_bottom"
+            android:text="@string/email_label"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/font_default" />
+
+        <EditText
+            android:id="@+id/email_profil"
+            style="@style/EditTextStyle"
+            android:hint=""
+            android:inputType="text" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="@dimen/label_margin_bottom"
+            android:text="@string/phone_label"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/font_default" />
+
+        <EditText
+            android:id="@+id/phone_profile"
+            style="@style/EditTextStyle"
+            android:hint=""
+            android:inputType="text" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="@dimen/label_margin_bottom"
+            android:text="@string/address_label"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/font_default" />
+
+        <EditText
+            android:id="@+id/address_profile"
+            style="@style/EditTextStyle"
+            android:hint=""
+            android:inputType="text" />
 
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="@dimen/label_margin_bottom"
+            android:text="@string/i_research"
+            android:textColor="@color/colorRed"
+            android:textSize="@dimen/font_title_default" />
 
-</RelativeLayout>
+        <View
+            android:id="@+id/divider_profile2"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/colorRed"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="@dimen/label_margin_bottom"
+            android:text="@string/category_label"
+            android:textColor="@color/colorRed"
+            android:textSize="@dimen/font_default" />
+
+        <Spinner
+            android:id="@+id/spinner1_profile"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            style="@style/EditTextStyle" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="@dimen/label_margin_bottom"
+            android:text="@string/i_offer"
+            android:textColor="@color/colorYellow"
+            android:textSize="@dimen/font_title_default" />
+
+        <View
+            android:id="@+id/divider_profile3"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/colorYellow"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="@dimen/label_margin_bottom"
+            android:text="@string/category_label"
+            android:textColor="@color/colorYellow"
+            android:textSize="@dimen/font_default" />
+
+        <Spinner
+            android:id="@+id/spinner2_profile"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            style="@style/EditTextStyle" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="@dimen/label_margin_bottom"
+            android:text="@string/description_label"
+            android:textColor="@color/colorYellow"
+            android:textSize="@dimen/font_default" />
+
+        <EditText
+            android:id="@+id/offer_description_profile"
+            style="@style/EditTextStyle"
+            android:layout_height="100dp"
+            android:hint=""
+            android:inputType="text" />
+
+        <Button
+            android:id="@+id/btn_add_category_profile"
+            fontPath="fonts/roboto_regular.ttf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/layout_rounded_light_yellow"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:layout_marginBottom="30dp"
+            android:text="@string/btn_add_category"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/font_default"
+            tools:ignore="MissingPrefix" />
+
+        <View
+            android:id="@+id/divider_profile4"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/colorAccent"/>
+
+        <Button
+            android:id="@+id/btn_register_profile"
+            fontPath="fonts/roboto_regular.ttf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/layout_rounded_light_blue"
+            android:paddingLeft="@dimen/btn_padding_horizontal"
+            android:paddingRight="@dimen/btn_padding_horizontal"
+            android:text="@string/btn_saved"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="30dp"
+            android:textSize="@dimen/font_default"
+            tools:ignore="MissingPrefix" />
+
+    </LinearLayout>
+
+</ScrollView>

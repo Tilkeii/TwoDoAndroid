@@ -12,7 +12,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import twodo.twodo.R;
-import twodo.twodo.activity.LoginActivity;
+import twodo.twodo.activity.ProfileActivity;
 import twodo.twodo.dto.model.User;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
@@ -49,9 +49,16 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Intent i = new Intent(view.getContext(), .class); METTRE LE NOM DE LA CLASSE PROFIL
-                //i.putExtra("", ); METTRE L'ID DE LA PERSONNE POUR LA RECUP DANS LA NOUVELLE ACTIVITE EN FAISANT UN GETINTENT
-                //view.getContext().startActivity(i);
+                Intent i = new Intent(view.getContext(), ProfileActivity.class);
+                i.putExtra("photo", match.getFirstname() + " " + match.getLastname());
+                i.putExtra("name", match.getFirstname() + " " + match.getLastname());
+                i.putExtra("age", match.getAge());
+                i.putExtra("phone", match.getPhone());
+                i.putExtra("email", match.getEmail());
+                i.putExtra("address", match.getAddress());
+                i.putExtra("category", match.getOfferCategory());
+                i.putExtra("description", match.getOfferDescription());
+                view.getContext().startActivity(i);
             }
         });
     }

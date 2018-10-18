@@ -6,21 +6,21 @@
 
     <ImageView
         android:id="@+id/photo"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/layout_rounded_light_grey"/>
 
 
     <LinearLayout
         android:id="@+id/matchprofile"
-        android:layout_width="300dp"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_below="@+id/photo"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="10dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -58,7 +58,7 @@
             android:layout_height="wrap_content"
             android:text="@string/description"
             android:textSize="16sp"
-            android:layout_marginTop="15dp"/>
+            android:layout_marginTop="10dp"/>
 
     </LinearLayout>
 
@@ -68,7 +68,7 @@
         android:orientation="horizontal"
         android:layout_below="@+id/matchprofile"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp">
+        android:layout_marginTop="15dp">
 
         <Button
             android:id="@+id/pass"

@@ -8,16 +8,6 @@
     <string name="email_hint">johndoe@gmail.com</string>
     <string name="email_label">Email</string>
     <string name="btn_login">Se connecter</string>
-    <string name="first_name_label">Prénom</string>
-    <string name="last_name_label">Nom</string>
-    <string name="phone_label">Téléphone</string>
-    <string name="address_label">Adresse</string>
-    <string name="first_name_hint">John</string>
-    <string name="last_name_hint">Doe</string>
-    <string name="phone_hint">XX.XX.XX.XX.XX</string>
-    <string name="address_hint">Paris</string>
-    <string name="btn_register">S\'inscrire</string>
-    <string name="cancel">Annuler</string>
 
     <!-- MATCHING LAYOUT -->
 
@@ -26,11 +16,31 @@
     <string name="age">64 ans</string>
     <string name="description">Je propose des cours de Photoshop niveau débutant.</string>
 
-
     <!-- MATCHES LAYOUT -->
 
     <string name="category">Informatique</string>
     <string name="separatorDate">, le\u0020</string>
     <string name="date">02/11/2018</string>
     <string name="years">\u0020ans</string>
+
+    <!-- PROFILE LAYOUT -->
+
+    <string name="first_name_label">Prénom</string>
+    <string name="last_name_label">Nom</string>
+    <string name="category_label">Catégorie</string>
+    <string name="description_label">Description</string>
+    <string name="phone_label">Téléphone</string>
+    <string name="address_label">Adresse</string>
+    <string name="first_name_hint">John</string>
+    <string name="last_name_hint">Doe</string>
+    <string name="phone_hint">XX.XX.XX.XX.XX</string>
+    <string name="address_hint">Paris</string>
+    <string name="btn_register">S\'inscrire</string>
+    <string name="btn_add_category">Ajouter une categorie</string>
+    <string name="cancel">Annuler</string>
+    <string name="my_info">Mes infos</string>
+    <string name="i_research">Je recherche ...</string>
+    <string name="i_offer">Je propose ...</string>
+    <string name="btn_saved">Sauvegarder</string>
+    <string name="hello_profile">Bonjour </string>
 </resources>
