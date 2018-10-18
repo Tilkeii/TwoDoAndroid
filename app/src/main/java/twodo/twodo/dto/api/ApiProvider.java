@@ -12,7 +12,8 @@ import twodo.twodo.dto.model.User;
 
 public class ApiProvider {
 
-    private static final String API_URL = "https://twodo-api.com/";
+    private static final String API_URL = "http://52.47.107.0/";
+    /*private static final String API_URL = "http://10.0.2.2:5000/";*/
 
     private ApiService apiService;
 
@@ -35,14 +36,13 @@ public class ApiProvider {
             @Override
             public void onResponse(Call<EUser> call, Response<EUser> response) {
                 if (listener != null) {
-                    User user = new User();
-
                     if (response.code() == 200) {
                         UserMapper userMapper = new UserMapper();
-                        user = userMapper.map(response.body());
+                        User user = userMapper.map(response.body());
+                        listener.onSuccess(user);
+                    } else {
+                        listener.onError(new Throwable(response.message()));
                     }
-
-                    listener.onSuccess(user);
                 }
             }
 

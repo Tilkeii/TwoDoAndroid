@@ -15,7 +15,6 @@ public class UserMapper {
         user.setLastname(eUser.getLastname());
         user.setEmail(eUser.getEmail());
         user.setPhone(eUser.getPhone());
-        user.setPicture(eUser.getPicture());
         user.setAddress(eUser.getAddress());
 
         return user;

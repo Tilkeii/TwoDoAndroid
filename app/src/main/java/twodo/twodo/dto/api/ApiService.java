@@ -9,6 +9,6 @@ import twodo.twodo.dto.model.EUser;
 public interface ApiService {
 
     @FormUrlEncoded
-    @POST("users/login/")
+    @POST("user/login")
     Call<EUser> login(@Field("email") String email, @Field("password") String password);
 }
