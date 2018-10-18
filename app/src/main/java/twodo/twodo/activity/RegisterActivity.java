@@ -55,7 +55,6 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     @OnClick(R.id.btn_cancel_register) public void registerButtonPressed(Button button) {
-        //Toast.makeText(getApplicationContext(), "TODO: implement me", Toast.LENGTH_SHORT).show();
         startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
     }
 

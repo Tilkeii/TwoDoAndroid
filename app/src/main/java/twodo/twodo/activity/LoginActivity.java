@@ -51,7 +51,6 @@ public class LoginActivity  extends AppCompatActivity {
     }
 
     @OnClick(R.id.btn_register_login) public void registerButtonPressed(Button button) {
-        //Toast.makeText(getApplicationContext(), "TODO: implement me", Toast.LENGTH_SHORT).show();
         startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
     }
 }
