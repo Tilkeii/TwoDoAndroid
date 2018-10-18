@@ -34,6 +34,10 @@ public class EUser {
         this.picture = picture;
     }
 
+    public EUser() {
+
+    }
+
     public int getId() {
         return id;
     }

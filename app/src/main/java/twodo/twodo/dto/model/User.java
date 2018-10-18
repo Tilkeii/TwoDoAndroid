@@ -1,4 +1,4 @@
-package twodo.twodo.model;
+package twodo.twodo.dto.model;
 
 import java.util.ArrayList;
 
@@ -43,6 +43,10 @@ public class User {
         this.searchCategory = searchCategory;
         this.matches = matches;
         this.picture = picture;
+    }
+
+    public User() {
+
     }
 
     public int getId() {
