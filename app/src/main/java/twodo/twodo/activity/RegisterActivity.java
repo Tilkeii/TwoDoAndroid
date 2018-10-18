@@ -50,7 +50,7 @@ public class RegisterActivity extends AppCompatActivity {
         super.attachBaseContext(ViewPumpContextWrapper.wrap(newBase));
     }
 
-    @OnClick(R.id.btn_register_login) public void loginButtonPressed(Button button) {
+    @OnClick(R.id.btn_register_register) public void loginButtonPressed(Button button) {
         Toast.makeText(getApplicationContext(), "TODO: implement me", Toast.LENGTH_SHORT).show();
     }
 
