@@ -5,4 +5,10 @@
     <string name="email_hint">johndoe@gmail.com</string>
     <string name="email_label">Email</string>
     <string name="btn_login">Se connecter</string>
+    <string name="first_name_label">Prénom</string>
+    <string name="last_name_label">Nom</string>
+    <string name="phone_label">Téléphone</string>
+    <string name="address_label">Adresse</string>
+    <string name="btn_register">S\'inscrire</string>
+    <string name="cancel">Annuler</string>
 </resources>
