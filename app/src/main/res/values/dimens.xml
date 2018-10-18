@@ -1,0 +1,7 @@
+<resources>
+    <dimen name="font_default">18sp</dimen>
+    <dimen name="input_padding_vertical">8dp</dimen>
+    <dimen name="input_padding_horizontal">10dp</dimen>
+    <dimen name="label_margin_bottom">10dp</dimen>
+    <dimen name="btn_padding_horizontal">15dp</dimen>
+</resources>
