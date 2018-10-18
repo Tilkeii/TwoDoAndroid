@@ -34,7 +34,7 @@
             android:id="@+id/input_last_name_register"
             style="@style/EditTextStyle"
             android:layout_gravity="center"
-            android:hint=""
+            android:hint="@string/last_name_hint"
             android:inputType="text" />
 
         <TextView
@@ -51,7 +51,7 @@
             android:id="@+id/input_first_name_register"
             style="@style/EditTextStyle"
             android:layout_gravity="center"
-            android:hint=""
+            android:hint="@string/first_name_hint"
             android:inputType="text" />
 
         <TextView
@@ -85,7 +85,7 @@
             android:id="@+id/input_phone_register"
             style="@style/EditTextStyle"
             android:layout_gravity="center"
-            android:hint=""
+            android:hint="@string/phone_hint"
             android:inputType="phone" />
 
         <TextView
@@ -102,7 +102,7 @@
             android:id="@+id/input_address_register"
             style="@style/EditTextStyle"
             android:layout_gravity="center"
-            android:hint=""
+            android:hint="@string/address_hint"
             android:inputType="text" />
 
         <TextView
