@@ -9,6 +9,10 @@
     <string name="last_name_label">Nom</string>
     <string name="phone_label">Téléphone</string>
     <string name="address_label">Adresse</string>
+    <string name="first_name_hint">John</string>
+    <string name="last_name_hint">Doe</string>
+    <string name="phone_hint">XX.XX.XX.XX.XX</string>
+    <string name="address_hint">Paris</string>
     <string name="btn_register">S\'inscrire</string>
     <string name="cancel">Annuler</string>
 </resources>
