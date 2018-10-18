@@ -16,6 +16,9 @@ import io.github.inflationx.calligraphy3.CalligraphyInterceptor;
 import io.github.inflationx.viewpump.ViewPump;
 import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 import twodo.twodo.R;
+import twodo.twodo.dto.api.ApiListener;
+import twodo.twodo.dto.api.ApiProvider;
+import twodo.twodo.dto.model.User;
 
 public class LoginActivity  extends AppCompatActivity {
 
@@ -47,7 +50,19 @@ public class LoginActivity  extends AppCompatActivity {
     }
 
     @OnClick(R.id.btn_login_login) public void loginButtonPressed(Button button) {
-        Toast.makeText(getApplicationContext(), "TODO: implement me", Toast.LENGTH_SHORT).show();
+        ApiProvider apiProvider = new ApiProvider();
+        apiProvider.login(email.getText().toString(), password.getText().toString(), new ApiListener<User>() {
+            @Override
+            public void onSuccess(User response) {
+                Toast.makeText(getApplicationContext(), "Successfully logged in!", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onError(Throwable throwable) {
+                throwable.printStackTrace();
+                Toast.makeText(getApplicationContext(), throwable.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @OnClick(R.id.btn_register_login) public void registerButtonPressed(Button button) {
