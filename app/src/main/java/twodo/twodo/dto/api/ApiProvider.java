@@ -52,4 +52,31 @@ public class ApiProvider {
             }
         });
     }
+
+    public void register(String firstName, String lastName, String email, String phone, String address, String password, final ApiListener<User> listener) {
+
+        apiService.register(firstName, lastName, email, phone, address, password).enqueue(new Callback<EUser>(){
+
+            @Override
+            public void onResponse(Call<EUser> call, Response<EUser> response) {
+                if(listener != null) {
+                    User user = new User();
+
+                    if(response.code() == 200) {
+                        UserMapper userMapper = new UserMapper();
+                        user = userMapper.map(response.body());
+                    }
+
+                    listener.onSuccess(user);
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<EUser> call, Throwable t) {
+                if (listener != null) listener.onError(t);
+            }
+        });
+
+    }
 }
