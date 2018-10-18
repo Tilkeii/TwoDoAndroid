@@ -13,6 +13,6 @@ public interface ApiService {
     Call<EUser> login(@Field("email") String email, @Field("password") String password);
 
     @FormUrlEncoded
-    @POST("users/register/")
+    @POST("user/")
     Call<EUser> register(@Field("first_name") String firstName, @Field("last_name") String lastName, @Field("email") String email, @Field("phone") String phone, @Field("address") String address, @Field("password") String password);
 }
