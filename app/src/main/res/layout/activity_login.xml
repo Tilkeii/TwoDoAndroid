@@ -50,45 +50,36 @@
         android:layout_gravity="center"
         android:hint="@string/password_hint" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/btn_login_login"
+        fontPath="fonts/roboto_regular.ttf"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:orientation="horizontal">
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/layout_rounded_light_blue"
+        android:paddingLeft="@dimen/btn_padding_horizontal"
+        android:paddingRight="@dimen/btn_padding_horizontal"
+        android:text="@string/btn_login"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/font_default"
+        tools:ignore="MissingPrefix" />
 
-        <Button
-            android:id="@+id/btn_login_login"
-            fontPath="fonts/roboto_regular.ttf"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="0dp"
-            android:layout_marginRight="10dp"
-            android:background="@drawable/layout_rounded_light_blue"
-            android:paddingLeft="@dimen/btn_padding_horizontal"
-            android:paddingRight="@dimen/btn_padding_horizontal"
-            android:text="@string/btn_login"
-            android:textColor="@android:color/white"
-            android:textSize="@dimen/font_default"
-            tools:ignore="MissingPrefix" />
-
-        <Button
-            android:id="@+id/btn_register_login"
-            fontPath="fonts/roboto_regular.ttf"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_weight="1"
-            android:background="@drawable/layout_rounded_light_blue"
-            android:paddingLeft="@dimen/btn_padding_horizontal"
-            android:paddingRight="@dimen/btn_padding_horizontal"
-            android:text="@string/btn_register"
-            android:textColor="@android:color/white"
-            android:textSize="@dimen/font_default"
-            tools:ignore="MissingPrefix" />
-    </LinearLayout>
+    <Button
+        android:id="@+id/btn_register_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:paddingLeft="@dimen/btn_padding_horizontal"
+        android:paddingRight="@dimen/btn_padding_horizontal"
+        android:text="@string/btn_register"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/font_default"
+        android:textAllCaps="false"
+        tools:ignore="MissingPrefix"
+        android:background="@android:color/transparent"
+        />
 
 </LinearLayout>
