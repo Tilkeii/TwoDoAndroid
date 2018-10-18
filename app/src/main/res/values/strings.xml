@@ -43,4 +43,5 @@
     <string name="i_offer">Je propose ...</string>
     <string name="btn_saved">Sauvegarder</string>
     <string name="hello_profile">Bonjour </string>
+    <string name="profile_description">Décrivez en quelques mots ce que vous proposez...</string>
 </resources>

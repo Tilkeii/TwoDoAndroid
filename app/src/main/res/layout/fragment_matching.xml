@@ -9,8 +9,9 @@
         android:layout_width="250dp"
         android:layout_height="250dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/layout_rounded_light_grey"/>
+        android:layout_marginTop="50dp"
+        android:background="@drawable/layout_rounded_light_grey"
+        />
 
 
     <LinearLayout
@@ -20,7 +21,7 @@
         android:orientation="vertical"
         android:layout_below="@+id/photo"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="25dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -33,13 +34,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="@string/name"
-                android:textSize="20sp" />
+                android:textSize="22sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="@string/separator"
-                android:textSize="20sp"
+                android:textSize="22sp"
                 android:textColor="@color/colorPrimary" />
 
             <TextView
@@ -47,7 +48,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="64 ans"
-                android:textSize="20sp"
+                android:textSize="22sp"
                 android:textColor="@color/colorPrimary"/>
 
         </LinearLayout>
@@ -57,7 +58,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/description"
-            android:textSize="16sp"
+            android:textSize="18sp"
             android:layout_marginTop="10dp"/>
 
     </LinearLayout>
@@ -68,7 +69,7 @@
         android:orientation="horizontal"
         android:layout_below="@+id/matchprofile"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp">
+        android:layout_marginTop="25dp">
 
         <Button
             android:id="@+id/pass"
