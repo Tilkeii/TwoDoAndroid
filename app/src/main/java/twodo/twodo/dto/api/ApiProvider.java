@@ -97,4 +97,26 @@ public class ApiProvider {
             }
         });
     }
+
+    public void saveProfile(Integer id, String firstName, String lastName, String phone, String email, String address, String password, Integer idCategory,final ApiListener<User> listener) {
+        apiService.saveProfile(id, firstName, lastName, phone, email, address, password, idCategory).enqueue(new Callback<EUser>() {
+            @Override
+            public void onResponse(Call<EUser> call, Response<EUser> response) {
+                if (listener != null) {
+                    if (response.code() == 200) {
+                        UserMapper userMapper = new UserMapper();
+                        User user = userMapper.map(response.body());
+                        listener.onSuccess(user);
+                    } else {
+                        listener.onError(new Throwable(response.message()));
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<EUser> call, Throwable t) {
+                if (listener != null) listener.onError(t);
+            }
+        });
+    }
 }

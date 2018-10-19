@@ -200,8 +200,7 @@
             android:layout_marginBottom="@dimen/label_margin_bottom"
             android:text="@string/description_label"
             android:textColor="@color/colorYellow"
-            android:textSize="@dimen/font_default"
-            />
+            android:textSize="@dimen/font_default" />
 
         <EditText
             android:id="@+id/offer_description_profile"
@@ -243,16 +242,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="30dp"
             android:background="@drawable/layout_rounded_light_blue"
             android:paddingLeft="@dimen/btn_padding_horizontal"
             android:paddingRight="@dimen/btn_padding_horizontal"
             android:text="@string/btn_saved"
             android:textColor="@android:color/white"
-            android:layout_marginTop="30dp"
-            android:layout_marginBottom="30dp"
             android:textSize="@dimen/font_default"
-            tools:ignore="MissingPrefix"
-            />
+            tools:ignore="MissingPrefix" />
 
     </LinearLayout>
 

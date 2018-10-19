@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -37,6 +38,9 @@ public class ProfileFragment extends Fragment {
     @BindView(R.id.offer_description_profile) TextView description;
     @BindView(R.id.btn_add_category_profile) Button addCategory;
 
+    private ApiProvider apiProvider = new ApiProvider();
+    private User user = User.getCurrentUser();
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
@@ -53,7 +57,6 @@ public class ProfileFragment extends Fragment {
         phone.setText(User.getCurrentUser().getPhone());
         address.setText(User.getCurrentUser().getAddress());
 
-<<<<<<< HEAD
         picture.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -65,23 +68,23 @@ public class ProfileFragment extends Fragment {
                         .start(getActivity());
             }
         });
-=======
+
         ApiProvider apiProvider = new ApiProvider();
         apiProvider.getCategories(new ApiListener<ArrayList<Category>>() {
             @Override
             public void onSuccess(ArrayList<Category> response) {
-                List<String> categoryList = new ArrayList<>();
+                List<Category> categoryList = new ArrayList<>();
 
                 for(Category category: response) {
-                    categoryList.add(category.getName());
+                    categoryList.add(category);
                 }
 
-                ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(getActivity().getApplicationContext(), android.R.layout.simple_spinner_item, categoryList);
-                adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                ArrayAdapter<Category> adapter1 = new ArrayAdapter<>(getActivity().getApplicationContext(), R.layout.item_spinner, categoryList);
+                //adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 spinner1.setAdapter(adapter1);
 
-                ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(getActivity().getApplicationContext(), android.R.layout.simple_spinner_item, categoryList);
-                adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                ArrayAdapter<Category> adapter2 = new ArrayAdapter<>(getActivity().getApplicationContext(), R.layout.item_spinner, categoryList);
+                //adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 spinner2.setAdapter(adapter2);
             }
 
@@ -91,10 +94,54 @@ public class ProfileFragment extends Fragment {
                 Toast.makeText(getActivity().getApplicationContext(), throwable.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
+
+        /*spinner1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                Category category = new Category((Category)parent.getSelectedItem());
+                Toast.makeText(parent.getContext(), "Id " + category.getId(), Toast.LENGTH_LONG).show();
+
+                user.setSearchCategory(category.getId());
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });*/
     }
 
     @OnClick(R.id.btn_save_profile) public void saveProfileButtonPressed(Button button) {
-        // TODO
->>>>>>> Hydrate my profile fragment - 2
+        final User user = User.getCurrentUser();
+        Category category = new Category((Category)spinner1.getSelectedItem());
+
+        apiProvider.saveProfile(
+                user.getId(),
+                user.getFirstname(),
+                user.getLastname(),
+                phone.getText().toString(),
+                email.getText().toString(),
+                address.getText().toString(),
+                user.getPassword(),
+                category.getId(),
+                new ApiListener<User>() {
+                    @Override
+                    public void onSuccess(User response) {
+                        User.setCurrentUser(response);
+                        User user = User.getCurrentUser();
+                        name.setText(user.getFirstname() + " " + user.getLastname());
+                        phone.setText(user.getPhone());
+                        email.setText(user.getEmail());
+                        address.setText(user.getAddress());
+                        Toast.makeText(getActivity().getApplicationContext(), "User saved", Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onError(Throwable throwable) {
+                        throwable.printStackTrace();
+                        Toast.makeText(getActivity().getApplicationContext(), throwable.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
+
 }

@@ -12,7 +12,13 @@ public class Category {
         this.name = name;
     }
 
-    public Category() {
+    public Category(Category cat) {
+        this.id = cat.id;
+        this.name = cat.name;
+    }
+
+    public Category(){
+
     }
 
     public int getId() {
@@ -29,5 +35,10 @@ public class Category {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return this.name;
     }
 }
