@@ -38,9 +38,6 @@ public class ProfileFragment extends Fragment {
     @BindView(R.id.offer_description_profile) TextView description;
     @BindView(R.id.btn_add_category_profile) Button addCategory;
 
-    private ApiProvider apiProvider = new ApiProvider();
-    private User user = User.getCurrentUser();
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
@@ -115,6 +112,7 @@ public class ProfileFragment extends Fragment {
         final User user = User.getCurrentUser();
         Category category = new Category((Category)spinner1.getSelectedItem());
 
+        ApiProvider apiProvider = new ApiProvider();
         apiProvider.saveProfile(
                 user.getId(),
                 user.getFirstname(),
