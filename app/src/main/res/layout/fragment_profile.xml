@@ -206,7 +206,6 @@
             android:id="@+id/offer_description_profile"
             style="@style/EditTextStyle"
             android:layout_height="100dp"
-            android:layout_width="290dp"
             android:hint="@string/profile_description"
             android:inputType="textMultiLine"
             android:imeOptions="actionDone"
