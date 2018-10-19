@@ -8,7 +8,7 @@
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
+        android:layout_width="275dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_marginStart="60dp"
@@ -142,12 +142,17 @@
             android:textSize="@dimen/font_default"
             />
 
-        <Spinner
-            android:id="@+id/spinner1_profile"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            style="@style/EditTextStyle"
-            />
+        <RelativeLayout
+            android:layout_width="275dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/layout_rounded_light_grey"
+            >
+            <Spinner
+                android:id="@+id/spinner1_profile"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                />
+        </RelativeLayout>
 
         <TextView
             android:layout_width="wrap_content"
@@ -176,12 +181,17 @@
             android:textSize="@dimen/font_default"
             />
 
-        <Spinner
-            android:id="@+id/spinner2_profile"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            style="@style/EditTextStyle"
-            />
+        <RelativeLayout
+            android:layout_width="275dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/layout_rounded_light_grey"
+            >
+            <Spinner
+                android:id="@+id/spinner2_profile"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                />
+        </RelativeLayout>
 
         <TextView
             android:layout_width="wrap_content"
@@ -197,7 +207,6 @@
             android:id="@+id/offer_description_profile"
             style="@style/EditTextStyle"
             android:layout_height="100dp"
-            android:layout_width="290dp"
             android:hint="@string/profile_description"
             android:inputType="textMultiLine"
             android:imeOptions="actionDone"
