@@ -83,5 +83,4 @@ public class RegisterActivity extends AppCompatActivity {
     @OnClick(R.id.btn_cancel_register) public void registerButtonPressed(Button button) {
         startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
     }
-
 }
