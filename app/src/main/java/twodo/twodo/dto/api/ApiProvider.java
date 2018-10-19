@@ -1,12 +1,17 @@
 package twodo.twodo.dto.api;
 
+import java.util.ArrayList;
+
 import okhttp3.OkHttpClient;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+import twodo.twodo.dto.mapper.CategoryMapper;
 import twodo.twodo.dto.mapper.UserMapper;
+import twodo.twodo.dto.model.Category;
+import twodo.twodo.dto.model.ECategory;
 import twodo.twodo.dto.model.EUser;
 import twodo.twodo.dto.model.User;
 
@@ -33,6 +38,68 @@ public class ApiProvider {
 
     public void login(String email, String password, final ApiListener<User> listener) {
         apiService.login(email, password).enqueue(new Callback<EUser>() {
+            @Override
+            public void onResponse(Call<EUser> call, Response<EUser> response) {
+                if (listener != null) {
+                    if (response.code() == 200) {
+                        UserMapper userMapper = new UserMapper();
+                        User user = userMapper.map(response.body());
+                        listener.onSuccess(user);
+                    } else {
+                        listener.onError(new Throwable(response.message()));
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<EUser> call, Throwable t) {
+                if (listener != null) listener.onError(t);
+            }
+        });
+    }
+
+    public void register( String lastname, String firstname, String email, String phone, String address, String password, final ApiListener<User> listener) {
+        apiService.register(lastname, firstname, email, phone, address, password).enqueue(new Callback<EUser>() {
+            @Override
+            public void onResponse(Call<EUser> call, Response<EUser> response) {
+                if (listener != null) {
+                    if (response.code() == 201) {
+                        UserMapper userMapper = new UserMapper();
+                        User user = userMapper.map(response.body());
+                        listener.onSuccess(user);
+                    } else {
+                        listener.onError(new Throwable(response.message()));
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<EUser> call, Throwable t) {
+                if (listener != null) listener.onError(t);
+            }
+        });
+    }
+
+    public void getCategories(final ApiListener<ArrayList<Category>> listener) {
+        apiService.getCategories().enqueue(new Callback<ArrayList<ECategory>>() {
+            @Override
+            public void onResponse(Call<ArrayList<ECategory>> call, Response<ArrayList<ECategory>> response) {
+                if (listener != null) {
+                    CategoryMapper categoryMapper = new CategoryMapper();
+                    ArrayList<Category> categoryList = categoryMapper.map(response.body());
+                    listener.onSuccess(categoryList);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ArrayList<ECategory>> call, Throwable t) {
+                if (listener != null) listener.onError(t);
+            }
+        });
+    }
+
+    public void saveProfile(Integer id, String firstName, String lastName, String phone, String email, String address, String password, Integer idCategory,final ApiListener<User> listener) {
+        apiService.saveProfile(id, firstName, lastName, phone, email, address, password, idCategory).enqueue(new Callback<EUser>() {
             @Override
             public void onResponse(Call<EUser> call, Response<EUser> response) {
                 if (listener != null) {

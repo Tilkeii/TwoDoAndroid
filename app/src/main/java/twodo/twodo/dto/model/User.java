@@ -38,6 +38,16 @@ public class User {
     private String date;
     private int age;
 
+    private static User currentUser = new User();
+
+    public static User getCurrentUser() {
+        return currentUser;
+    }
+
+    public static void setCurrentUser(User user){
+        currentUser = user;
+    }
+
     public User(int id, String firstname, String lastname, String phone, String email, String address, String password, String offerCategory, ArrayList<String> offerCategories, String offerDescription, ArrayList<String> offerDescriptions, String searchCategory, ArrayList matches, String picture, String date, int age) {
         this.id = id;
         this.firstname = firstname;
@@ -187,5 +197,9 @@ public class User {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public String getFullname() {
+        return firstname + " " + lastname;
     }
 }

@@ -56,8 +56,11 @@ public class LoginActivity extends AppCompatActivity {
             public void onSuccess(User response) {
                 Toast.makeText(getApplicationContext(), "Successfully logged in!", Toast.LENGTH_SHORT).show();
 
+                User.setCurrentUser(response);
+
                 Intent i = new Intent(LoginActivity.this, PagerActivity.class);
                 LoginActivity.this.startActivity(i);
+                finish();
             }
 
             @Override
