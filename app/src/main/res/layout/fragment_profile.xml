@@ -206,10 +206,7 @@
             android:id="@+id/offer_description_profile"
             style="@style/EditTextStyle"
             android:layout_height="100dp"
-<<<<<<< HEAD
-=======
-            android:layout_width="275dp"
->>>>>>> Hydrate my profile fragment
+            android:layout_width="290dp"
             android:hint="@string/profile_description"
             android:inputType="textMultiLine"
             android:imeOptions="actionDone"
