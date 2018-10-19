@@ -8,7 +8,9 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
+import retrofit2.http.Path;
 import twodo.twodo.dto.model.ECategory;
+import twodo.twodo.dto.model.EMatch;
 import twodo.twodo.dto.model.EUser;
 
 public interface ApiService {
@@ -26,4 +28,6 @@ public interface ApiService {
     @FormUrlEncoded
     @PUT("/user/update")
     Call<EUser> saveProfile(@Field("id") Integer id, @Field("firstname") String firstName, @Field("lastname") String lastName, @Field("phone") String phone, @Field("email") String email, @Field("address") String address, @Field("password") String password, @Field("id_category") Integer idCategory);
+
+    @GET("match/getAllMatch/{id}") Call<ArrayList<EMatch>> getMatches(@Path("id") String id);
 }

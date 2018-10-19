@@ -9,10 +9,13 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import twodo.twodo.dto.mapper.CategoryMapper;
+import twodo.twodo.dto.mapper.MatchMapper;
 import twodo.twodo.dto.mapper.UserMapper;
 import twodo.twodo.dto.model.Category;
 import twodo.twodo.dto.model.ECategory;
+import twodo.twodo.dto.model.EMatch;
 import twodo.twodo.dto.model.EUser;
+import twodo.twodo.dto.model.Match;
 import twodo.twodo.dto.model.User;
 
 public class ApiProvider {
@@ -115,6 +118,25 @@ public class ApiProvider {
 
             @Override
             public void onFailure(Call<EUser> call, Throwable t) {
+                if (listener != null) listener.onError(t);
+            }
+        });
+    }
+
+
+    public void getMatches(String id, final ApiListener<ArrayList<Match>> listener) {
+        apiService.getMatches(id).enqueue(new Callback<ArrayList<EMatch>>() {
+            @Override
+            public void onResponse(Call<ArrayList<EMatch>> call, Response<ArrayList<EMatch>> response) {
+                if (listener != null) {
+                    MatchMapper matchMapper = new MatchMapper();
+                    ArrayList<Match> matchList = matchMapper.map(response.body());
+                    listener.onSuccess(matchList);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ArrayList<EMatch>> call, Throwable t) {
                 if (listener != null) listener.onError(t);
             }
         });

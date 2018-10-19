@@ -6,7 +6,6 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -37,9 +36,6 @@ public class ProfileFragment extends Fragment {
     @BindView(R.id.spinner2_profile) Spinner spinner2;
     @BindView(R.id.offer_description_profile) TextView description;
     @BindView(R.id.btn_add_category_profile) Button addCategory;
-
-    private ApiProvider apiProvider = new ApiProvider();
-    private User user = User.getCurrentUser();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -115,6 +111,7 @@ public class ProfileFragment extends Fragment {
         final User user = User.getCurrentUser();
         Category category = new Category((Category)spinner1.getSelectedItem());
 
+        ApiProvider apiProvider = new ApiProvider();
         apiProvider.saveProfile(
                 user.getId(),
                 user.getFirstname(),
@@ -143,5 +140,4 @@ public class ProfileFragment extends Fragment {
                     }
                 });
     }
-
 }
