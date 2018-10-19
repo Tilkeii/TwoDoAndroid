@@ -13,6 +13,10 @@ import twodo.twodo.dto.model.EUser;
 public interface ApiService {
 
     @FormUrlEncoded
+    @POST("user/")
+    Call<EUser> register(@Field("lastname") String lastname, @Field("firstname") String firstname, @Field("email") String email, @Field("phone") String phone, @Field("address") String address, @Field("password") String password);
+
+    @FormUrlEncoded
     @POST("user/login")
     Call<EUser> login(@Field("email") String email, @Field("password") String password);
 

@@ -58,6 +58,28 @@ public class ApiProvider {
         });
     }
 
+    public void register( String lastname, String firstname, String email, String phone, String address, String password, final ApiListener<User> listener) {
+        apiService.register(lastname, firstname, email, phone, address, password).enqueue(new Callback<EUser>() {
+            @Override
+            public void onResponse(Call<EUser> call, Response<EUser> response) {
+                if (listener != null) {
+                    if (response.code() == 201) {
+                        UserMapper userMapper = new UserMapper();
+                        User user = userMapper.map(response.body());
+                        listener.onSuccess(user);
+                    } else {
+                        listener.onError(new Throwable(response.message()));
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<EUser> call, Throwable t) {
+                if (listener != null) listener.onError(t);
+            }
+        });
+    }
+
     public void getCategories(final ApiListener<ArrayList<Category>> listener) {
         apiService.getCategories().enqueue(new Callback<ArrayList<ECategory>>() {
             @Override
